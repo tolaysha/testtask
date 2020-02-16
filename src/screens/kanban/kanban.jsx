@@ -1,19 +1,17 @@
-import { React } from 'react'
+import * as React from 'react';
 import ClassNames from 'classnames';
-export const classes = theme => ({
-  /* Styles applied to the root element. */
+import injectSheet from 'react-jss'
+import Paper from '../../components/paper/paper.jsx'
+
+
+const styles = {
   root: {
-    border: '1px solid',
-    width: '200px',
-    display:'grid',
-    justifyContent:'center'
+
   },
-
-});
-
-const Kanban = ()=>{
+}
+let Kanban = ({classes})=>{
   return <div className={ClassNames(classes.root)}>
-    hello
+    <Paper />
   </div>
 }
-export default Kanban;
+export default injectSheet(styles)(Kanban)
