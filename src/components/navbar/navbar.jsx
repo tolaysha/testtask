@@ -10,7 +10,8 @@ const styles = {
   },
   ul:{
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   SberProfi: {
     fontFamily: 'Roboto',
