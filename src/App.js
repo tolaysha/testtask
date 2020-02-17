@@ -6,11 +6,12 @@ import Navbar from './components/navbar/navbar.jsx'
 import SberLayout from './screens/sberLayout/sberLayout.jsx'
 import Sidebar from './components/sidebar/sidebar.jsx'
 import ClassNames from 'classnames';
-import injectSheet from 'react-jss';
+//import injectSheet from 'react-jss';
 import rootReducer from './store/kanban/reducers'
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/kanban/saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { createUseStyles, useTheme, ThemeProvider } from 'react-jss'
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +21,9 @@ import './App.css';
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(rootSaga)
-const styles = {
+
+// Using `theme` function is better when you have many theme dependant styles.
+let useStyles = createUseStyles(theme => ({
   root: {
     border: '1px solid #c1c1c1',
     display: 'grid',
@@ -40,40 +43,52 @@ const styles = {
   content: {
     gridArea: 'content',
     border: '1px solid #c1c1c1',
+  },
+  test:{
+    backgroundColor:'#999999'
   }
-}
-let App = ({ classes }) => {
+  
+}))
 
+// Using function values might be better if you have only few theme dependant styles
+// and also props or state is used for other values.
+
+let App = ({ ...props }) => {
+  const theme = useTheme()
+  const classes = useStyles({...props, theme})
   return (
     <Provider store={store}>
-      <div className="App">
+      <ThemeProvider theme={theme}>
+        <div className="App">
 
 
-        <div className={ClassNames(classes.root)}>
-          <div className={ClassNames(classes.navbar)}>
-            <Navbar />
+          <div className={ClassNames(classes.root)}>
+            <div className={ClassNames(classes.navbar)}>
+              <Navbar />
+            </div>
+            <div className={ClassNames(classes.sidebar)}>
+              <Sidebar />
+            </div>
+            <Router>
+              <Switch>
+                <Route path="/about">
+                  <div className={ClassNames(classes.content)}><Kanban /></div>
+                </Route>
+                <Route path="/sberLayout">
+                  <div className={ClassNames(classes.content)}><SberLayout /></div>
+                </Route>
+              </Switch>
+            </Router>
           </div>
-          <div className={ClassNames(classes.sidebar)}>
-            <Sidebar />
-          </div>
-          <Router>
-            <Switch>
-              <Route path="/about">
-                <div className={ClassNames(classes.content)}><Kanban /></div>
-              </Route>
-              <Route path="/sberLayout">
-                <div className={ClassNames(classes.content)}><SberLayout /></div>
-              </Route>
-            </Switch>
-          </Router>
+
+
         </div>
-
-
-      </div>
+      </ThemeProvider>
     </Provider>
 
   );
 }
-export default injectSheet(styles)(App)
+// export default injectSheet(styles)(App)
+export default App;
 
 

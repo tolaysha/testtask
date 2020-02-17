@@ -1,18 +1,23 @@
 import * as React from 'react';
 import ClassNames from 'classnames';
 import injectSheet from 'react-jss'
-
+import styled from 'styled-components';
+const UlStyled = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
 
 const styles = {
   root: {
     display: 'flex',
     flexDirection: 'row'
   },
-  ul:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
+  // ul:{
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   alignItems: 'flex-start',
+  // },
   SberProfi: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
@@ -36,11 +41,10 @@ const styles = {
 let Sidebar = ({ classes }) => {
   return <div className={ClassNames(classes.root)}>
   
-      <ul className={ClassNames(classes.ul)}>
+      <UlStyled>
         <li className={ClassNames(classes.SberProfi)}>SberProfi</li>
         <li className={ClassNames(classes.SberWorks)}>SberWorks</li>
-      </ul>
-
+      </UlStyled>
   </div>
 
 }
