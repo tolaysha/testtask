@@ -9,16 +9,10 @@ const styles = {
 
   },
 }
-let Kanban = ({
-  classes,
-  items }) => {
-  let props = {
-    items:items,
-  }
-  console.log('console check from Kanban.jsx', items);
+let SberLayout = ({
+  classes,}) => {
   return <div className={ClassNames(classes.root)}>
-    <Paper {...props} />
   </div>
 }
-export default injectSheet(styles)(Kanban);
+export default injectSheet(styles)(SberLayout);
 //  export default Kanban;

@@ -2,6 +2,8 @@ import React from 'react';
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from 'react-redux'
 import Kanban from './screens/kanban/kanban.js'
+import Navbar from './components/navbar/navbar.jsx'
+import SberLayout from './screens/sberLayout/sberLayout.jsx'
 import Sidebar from './components/sidebar/sidebar.jsx'
 import ClassNames from 'classnames';
 import injectSheet from 'react-jss';
@@ -23,8 +25,9 @@ const styles = {
     border: '1px solid #c1c1c1',
     display: 'grid',
     'grid-template-columns': '1fr 7fr',
-    'grid-template-rows': '1fr 7fr',
+    'grid-template-rows': '90px 1fr',
     'grid-template-areas': '"navbar navbar " "sidebar content " "sidebar content "',
+    height: '100vh',
   },
   navbar: {
     gridArea: 'navbar',
@@ -47,7 +50,9 @@ let App = ({ classes }) => {
 
 
         <div className={ClassNames(classes.root)}>
-          <div className={ClassNames(classes.navbar)}>navbar</div>
+          <div className={ClassNames(classes.navbar)}>
+            <Navbar />
+          </div>
           <div className={ClassNames(classes.sidebar)}>
             <Sidebar />
           </div>
@@ -55,6 +60,9 @@ let App = ({ classes }) => {
             <Switch>
               <Route path="/about">
                 <div className={ClassNames(classes.content)}><Kanban /></div>
+              </Route>
+              <Route path="/sberLayout">
+                <div className={ClassNames(classes.content)}><SberLayout /></div>
               </Route>
             </Switch>
           </Router>
