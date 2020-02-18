@@ -6,6 +6,12 @@ const items = (state = initialState(), action) => {
       return {
         ...state
       }
+    case 'ADD_ITEM':
+      console.log('from reducers', state)
+      let newState = {...state}
+      newState.count++;
+      return  newState;
+      
     default: return state;
   }
 }

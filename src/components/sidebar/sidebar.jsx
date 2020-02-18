@@ -1,15 +1,8 @@
 import * as React from 'react';
 import ClassNames from 'classnames';
 // import injectSheet from 'react-jss'
-import {createUseStyles, useTheme} from 'react-jss'
-import styled from 'styled-components';
-const Heading = styled.h1`
-  color: gray;
-  font-size: 1.5em;
-`;
-const Paragraph = styled.p`
-  font-size: 1.1em;
-`;
+import { createUseStyles, useTheme } from 'react-jss'
+
 
 let useStyles = createUseStyles(theme => ({
   root: {
@@ -33,12 +26,16 @@ let useStyles = createUseStyles(theme => ({
 
   },
 }))
-let Sidebar = ({ ...props }) => {
+let Sidebar = ({ items, addItem, ...props }) => {
+  console.log('i am addItem action from sidebar.jsx', addItem)
+  console.log('It is items from sidebar.jsx', addItem)
   const theme = useTheme()
-  const classes = useStyles({...props, theme})
+  const classes = useStyles({ ...props, theme })
+  const handleAddButton = () => addItem();
   return <div className={ClassNames(classes.root)}>
-    <button className={ClassNames(classes.item)}> Четные</button>
+    <button className={ClassNames(classes.item)}>Четные</button>
     <button className={ClassNames(classes.item)}> Не четные</button>
+    <button onClick={handleAddButton} className={ClassNames(classes.item)}> Добавить +1</button>
     <div className={ClassNames(classes.test)}></div>
   </div>
 

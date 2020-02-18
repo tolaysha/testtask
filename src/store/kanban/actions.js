@@ -3,7 +3,6 @@ export const getItems = items => ({
   payload: items,
 })
 
-export const setItems = items => ({
-  type: 'SET_ITEMS',
-  payload: items
+export const addItem = () => ({
+  type: 'ADD_ITEM',
 })

@@ -25,7 +25,6 @@ sagaMiddleware.run(rootSaga)
 // Using `theme` function is better when you have many theme dependant styles.
 let useStyles = createUseStyles(theme => ({
   root: {
-    border: '1px solid #c1c1c1',
     display: 'grid',
     'grid-template-columns': '1fr 7fr',
     'grid-template-rows': '90px 1fr',
@@ -43,6 +42,8 @@ let useStyles = createUseStyles(theme => ({
   content: {
     gridArea: 'content',
     border: '1px solid #c1c1c1',
+    overflowY: 'scroll',
+
   },
   test:{
     backgroundColor:'#999999'
@@ -54,7 +55,7 @@ let useStyles = createUseStyles(theme => ({
 // and also props or state is used for other values.
 
 let App = ({ ...props }) => {
-  const theme = useTheme()
+  const theme = useTheme();
   const classes = useStyles({...props, theme})
   return (
     <Provider store={store}>

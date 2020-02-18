@@ -1,5 +1,5 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { getItems } from './actions'
+import { addItem } from './actions'
 
 const delay = data => new Promise((resolve, reject) => {
 
@@ -12,9 +12,12 @@ const delay = data => new Promise((resolve, reject) => {
 
 
 function* getItemsAsync() {
-  //const data = yield call(delay({name:'peter'}).then(res=>console.log(res)))
-  yield put(getItems({ count: 10 }))
+  yield setTimeout(() => {
+    console.log('i am setTimeout')
+  }, 2000);
+  console.log('i am from saga')
+  yield put(addItem())
 }
 export default function* watchItemsAsync() {
-  yield takeEvery(getItems().type, getItemsAsync)
+  yield takeEvery(addItem().type, getItemsAsync)
 }
