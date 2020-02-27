@@ -11,11 +11,14 @@ const styles = {
 }
 let Kanban = ({
   classes,
-  items }) => {
+  items,
+  ...other }) => {
   let props = {
     items:items,
   }
-  console.log('console check from Kanban.jsx', items);
+  console.log('console check items from Kanban.jsx', items);
+  console.log('console check __filename from Kanban.jsx', __filename);
+  console.log('console check other from Kanban.jsx', other);
   return <div className={ClassNames(classes.root)}>
     <Paper {...props} />
   </div>

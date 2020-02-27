@@ -4,9 +4,8 @@ import { Provider } from 'react-redux'
 import Kanban from './screens/kanban/kanban.js'
 import Navbar from './components/navbar/navbar.jsx'
 import SberLayout from './screens/sberLayout/sberLayout.jsx'
-import Sidebar from './components/sidebar/sidebar.jsx'
+import Sidebar from './components/sidebar/sidebar.js'
 import ClassNames from 'classnames';
-//import injectSheet from 'react-jss';
 import rootReducer from './store/kanban/reducers'
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/kanban/saga'
@@ -18,10 +17,10 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
+
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(rootSaga)
-
 // Using `theme` function is better when you have many theme dependant styles.
 let useStyles = createUseStyles(theme => ({
   root: {
@@ -61,8 +60,6 @@ let App = ({ ...props }) => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <div className="App">
-
-
           <div className={ClassNames(classes.root)}>
             <div className={ClassNames(classes.navbar)}>
               <Navbar />
@@ -81,15 +78,12 @@ let App = ({ ...props }) => {
               </Switch>
             </Router>
           </div>
-
-
         </div>
       </ThemeProvider>
     </Provider>
-
   );
 }
-// export default injectSheet(styles)(App)
+//sagaMiddleware.run(rootSaga)
 export default App;
 
 

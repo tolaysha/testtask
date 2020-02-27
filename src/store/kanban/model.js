@@ -1,3 +1,3 @@
 export  const initialState = () =>({
-  count: 10
+  count: 10,
 })
