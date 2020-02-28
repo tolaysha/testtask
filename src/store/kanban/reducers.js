@@ -13,6 +13,11 @@ const items = handleActions({
     [actions.getItems]:(state, {payload})=>{
       console.log('i am GET_ITEMS from switch in reducer', state);
       return state;
+    },
+    
+    [actions.getItemsSuccess]:(state, {payload})=>{
+      console.log('i am GET_ITEMS_SUCCESS from switch in reducer', state);
+      return { count:payload };
     }
     
   },

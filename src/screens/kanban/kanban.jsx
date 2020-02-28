@@ -21,7 +21,7 @@ let Kanban = ({
   //const [Items, setItems] = useState();
   useEffect((state) => {
     console.log('i am state from useEffect-', state);
-    getItems();
+    getItems(5);
   
   }, []);
   

@@ -10,7 +10,7 @@ import rootReducer from './store/kanban/reducers'
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/kanban/saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { createUseStyles, useTheme, ThemeProvider } from 'react-jss'
+import { createUseStyles, useTheme} from 'react-jss'
 import {
   BrowserRouter as Router,
   Switch,
@@ -58,7 +58,6 @@ let App = ({ ...props }) => {
   const classes = useStyles({...props, theme})
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
         <div className="App">
           <div className={ClassNames(classes.root)}>
             <div className={ClassNames(classes.navbar)}>
@@ -79,7 +78,6 @@ let App = ({ ...props }) => {
             </Router>
           </div>
         </div>
-      </ThemeProvider>
     </Provider>
   );
 }
