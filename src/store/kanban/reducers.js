@@ -19,21 +19,7 @@ const items = handleActions({
   },
   initialState()
 );
-// const items = (state = initialState(), action) => {
-//   console.log('i am action type in reducer', action.type)
-//   switch (action.type) {
-//     case '/ADD_ITEM':
-//       console.log('i am ADD_ITEM from switch in reducer', state)
-//       let newState = {...state}
-//       newState.count++;
-//       return  newState;
-//     case '/GET_ITEMS':
-//       console.log('i am GET_ITEMS from switch in reducer', state);
-//       return state
-//     default: return state;
-//   }
-  
-// }
+
 const rootReducers = combineReducers({
   items
 })
