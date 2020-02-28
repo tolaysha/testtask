@@ -8,4 +8,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, getItems)(Kanban);
+export default connect(mapStateToProps,{ getItems })(Kanban);

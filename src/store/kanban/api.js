@@ -1,3 +1,4 @@
+//рекурсия url до 5 щтук
 const fetchUrl = url =>{
   let count = 0;
   console.log('fetchUrl');
@@ -26,12 +27,12 @@ const fetchUrl = url =>{
 }
 
 
-const delay = data => new Promise((resolve, reject) => {
+const getItemsWithDelay = data => new Promise((resolve, reject) => {
 
   setTimeout(() => {
     // переведёт промис в состояние fulfilled с результатом "result"
     resolve(data);
   }, 1000);
-
 });
+
   
