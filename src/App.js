@@ -17,7 +17,6 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
-import Paper from './components/paper/paper.jsx';
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
