@@ -19,7 +19,7 @@ const styles = {
     fontSize: '56px',
     color: 'darkblue',
     backgroundColor: '#e7a61a',
-    transition: '0.3s ease',
+    transition: '0.15s ease',
     '&:hover': {
       backgroundColor: '#b9923e',
       cursor: 'pointer',
