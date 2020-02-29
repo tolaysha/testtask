@@ -19,9 +19,11 @@ const styles = {
     fontSize: '56px',
     color: 'darkblue',
     backgroundColor: '#e7a61a',
+    transition: '0.3s ease',
     '&:hover': {
       backgroundColor: '#b9923e',
       cursor: 'pointer',
+      transform: 'scale(1.1)',
     },
 
     boxShadow: `-webkit-box-shadow: 0px 0px 47px -27px rgba(0,0,0,0.72);

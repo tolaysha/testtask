@@ -68,11 +68,10 @@ let App = ({ ...props }) => {
             </div>
             <Router>
               <Switch>
-                <Route path="/about">
+                <Route path="/about/:id">
                   <div className={ClassNames(classes.content)}><Kanban /></div>
                 </Route>
-                <Route path="/sberLayout">
-                  <div className={ClassNames(classes.content)}><SberLayout /></div>
+                <Route path="/sberLayout" component={SberLayout}>
                 </Route>
               </Switch>
             </Router>
