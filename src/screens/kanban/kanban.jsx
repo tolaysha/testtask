@@ -21,7 +21,6 @@ let Kanban = ({
   //const [Items, setItems] = useState();
   useEffect((state) => {
     console.log('i am state from useEffect-', state);
-    //getItems(Number(match.params.id));
     console.log('i am dispatch in useEffect in kanban.jsx', dispatch);
     console.log('i am getItems in useEffect in kanban.jsx', getItems);
     dispatch(getItems(Number(match.params.id)))
@@ -34,4 +33,3 @@ let Kanban = ({
   </div>
 }
 export default injectSheet(styles)(Kanban);
-//  export default Kanban;
