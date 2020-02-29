@@ -23,7 +23,7 @@
 //       console.log('i am before reset first')
 //       reset(url)
 //   })
-  
+
 // }
 
 
@@ -35,4 +35,3 @@ export const getItemsWithDelay = data => new Promise((resolve, reject) => {
   }, 1000);
 });
 
-  

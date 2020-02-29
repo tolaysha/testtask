@@ -17,8 +17,8 @@ const styles = {
   },
 }
 let SberLayout = ({ classes, ...other }) => {
-  console.log('i am props from sberLayout',other);
-  
+  console.log('i am props from sberLayout', other);
+
   return <div className={ClassNames(classes.root)}>
     <Heading>
       Heading

@@ -10,7 +10,7 @@ import rootReducer from './store/kanban/reducers'
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/kanban/saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { createUseStyles, useTheme} from 'react-jss'
+import { createUseStyles, useTheme } from 'react-jss'
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,10 +44,10 @@ let useStyles = createUseStyles(theme => ({
     overflowY: 'scroll',
 
   },
-  test:{
-    backgroundColor:'#999999'
+  test: {
+    backgroundColor: '#999999'
   }
-  
+
 }))
 
 // Using function values might be better if you have only few theme dependant styles
@@ -55,28 +55,28 @@ let useStyles = createUseStyles(theme => ({
 
 let App = ({ ...props }) => {
   const theme = useTheme();
-  const classes = useStyles({...props, theme})
+  const classes = useStyles({ ...props, theme })
   return (
     <Provider store={store}>
-        <div className="App">
-          <div className={ClassNames(classes.root)}>
-            <div className={ClassNames(classes.navbar)}>
-              <Navbar />
-            </div>
-            <div className={ClassNames(classes.sidebar)}>
-              <Sidebar />
-            </div>
-            <Router>
-              <Switch>
-                <Route path="/about/:id">
-                  <div className={ClassNames(classes.content)}><Kanban /></div>
-                </Route>
-                <Route path="/sberLayout" component={SberLayout}>
-                </Route>
-              </Switch>
-            </Router>
+      <div className="App">
+        <div className={ClassNames(classes.root)}>
+          <div className={ClassNames(classes.navbar)}>
+            <Navbar />
           </div>
+          <div className={ClassNames(classes.sidebar)}>
+            <Sidebar />
+          </div>
+          <Router>
+            <Switch>
+              <Route path="/about/:id">
+                <div className={ClassNames(classes.content)}><Kanban /></div>
+              </Route>
+              <Route path="/sberLayout" component={SberLayout}>
+              </Route>
+            </Switch>
+          </Router>
         </div>
+      </div>
     </Provider>
   );
 }

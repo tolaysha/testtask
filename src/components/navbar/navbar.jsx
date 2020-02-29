@@ -28,7 +28,7 @@ const styles = {
     color: '#000000',
     listStyleType: 'none',
   },
-  SberWorks:{
+  SberWorks: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -40,11 +40,11 @@ const styles = {
 }
 let Sidebar = ({ classes }) => {
   return <div className={ClassNames(classes.root)}>
-  
-      <UlStyled>
-        <li className={ClassNames(classes.SberProfi)}>SberProfi</li>
-        <li className={ClassNames(classes.SberWorks)}>SberWorks</li>
-      </UlStyled>
+
+    <UlStyled>
+      <li className={ClassNames(classes.SberProfi)}>SberProfi</li>
+      <li className={ClassNames(classes.SberWorks)}>SberWorks</li>
+    </UlStyled>
   </div>
 
 }

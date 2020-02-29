@@ -5,11 +5,11 @@ import { getItemsWithDelay } from './api'
 
 function* fetchItems(action) {
    try {
-      console.log('i am action in block try in saga fetchitems',action);
-      console.log('i am getItemsWithDelay in saga',getItemsWithDelay);
-      
+      console.log('i am action in block try in saga fetchitems', action);
+      console.log('i am getItemsWithDelay in saga', getItemsWithDelay);
+
       const itemsCount = yield call(getItemsWithDelay, action.payload);
-      console.log('i am items in block try in saga fetchitems after call',itemsCount);
+      console.log('i am items in block try in saga fetchitems after call', itemsCount);
       yield put(actions.getItemsSuccess(itemsCount));
    } catch (e) {
 
@@ -18,7 +18,7 @@ function* fetchItems(action) {
 }
 
 function* mySaga() {
-  yield takeEvery(actions.getItems().type, fetchItems);
+   yield takeEvery(actions.getItems().type, fetchItems);
 }
 
 

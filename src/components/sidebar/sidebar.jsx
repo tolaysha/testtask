@@ -26,8 +26,8 @@ let useStyles = createUseStyles(theme => ({
   },
 }))
 
-let Sidebar = ({addItem, ...props}) => {
-  console.log('i am props from sidebar.jsx',props)
+let Sidebar = ({ addItem, ...props }) => {
+  console.log('i am props from sidebar.jsx', props)
   //console.log('i am hook-store from sidebar.jsx',store)
   console.log('i am addItem action from sidebar.jsx', addItem)
   const theme = useTheme()

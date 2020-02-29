@@ -1,3 +1,3 @@
-export  const initialState = () =>({
+export const initialState = () => ({
   count: 10,
 })
