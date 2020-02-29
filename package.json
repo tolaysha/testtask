@@ -2,6 +2,7 @@
   "name": "testtask",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tolaysha.github.io/testtask",
   "dependencies": {
     "@material-ui/core": "^4.9.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -21,6 +22,8 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
