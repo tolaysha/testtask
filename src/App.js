@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from 'react-redux'
-import Kanban from './screens/kanban/kanban.js'
+import Kanban from './screens/kanban/kanban.jsx'
 import Navbar from './components/navbar/navbar.jsx'
 import SberLayout from './screens/sberLayout/sberLayout.jsx'
 import Sidebar from './components/sidebar/sidebar.js'
@@ -17,6 +17,7 @@ import {
   Route,
 } from "react-router-dom";
 import './App.css';
+import Paper from './components/paper/paper.jsx';
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
@@ -69,7 +70,7 @@ let App = ({ ...props }) => {
           <Router>
             <Switch>
               <Route path="/about/:id">
-                <div className={ClassNames(classes.content)}><Kanban /></div>
+                <div className={ClassNames(classes.content)}><Kanban/></div>
               </Route>
               <Route path="/sberLayout" component={SberLayout}>
               </Route>

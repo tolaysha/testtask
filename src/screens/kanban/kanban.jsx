@@ -3,7 +3,8 @@ import ClassNames from 'classnames';
 import injectSheet from 'react-jss'
 import Paper from '../../components/paper/paper.jsx'
 import { useRouteMatch, } from "react-router-dom";
-
+import { useDispatch } from 'react-redux'
+import { getItems } from '../../store/kanban/actions.js'
 const styles = {
   root: {
 
@@ -12,24 +13,24 @@ const styles = {
 
 let Kanban = ({
   classes,
-  items,
-  getItems,
   ...other }) => {
-  let props = {
-    items: items,
-  }
+
   let match = useRouteMatch();
+  const dispatch = useDispatch();
   console.log('i am math from hook useRouterMath from kanban.jsx', match);
   //const [Items, setItems] = useState();
   useEffect((state) => {
     console.log('i am state from useEffect-', state);
-    getItems(Number(match.params.id));
+    //getItems(Number(match.params.id));
+    console.log('i am dispatch in useEffect in kanban.jsx', dispatch);
+    console.log('i am getItems in useEffect in kanban.jsx', getItems);
+    dispatch(getItems(Number(match.params.id)))
   }, [match.params.id]);
 
   console.log('console check __filename from Kanban.jsx', __filename);
   console.log('console check other from Kanban.jsx', other);
   return <div className={ClassNames(classes.root)}>
-    <Paper {...props} />
+    <Paper />
   </div>
 }
 export default injectSheet(styles)(Kanban);

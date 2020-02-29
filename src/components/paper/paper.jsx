@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ClassNames from 'classnames';
 import injectSheet from 'react-jss'
+import { useDispatch, useSelector } from "react-redux";
 
 
 const styles = {
@@ -35,9 +36,10 @@ const styles = {
     border: 0px solid #000000;`
   },
 }
-let Paper = ({ classes, items }) => {
+let Paper = ({ classes, component }) => {
+  const count = useSelector(state => state.items.count)
   return (<div className={ClassNames(classes.root)}>
-    {[...Array(items.count)].map((_, index) => <div key={index} className={ClassNames(classes.item)}>
+    {[...Array(count)].map((_, index) => <div key={index} className={ClassNames(classes.item)}>
       {index}
     </div>)}
   </div>)
