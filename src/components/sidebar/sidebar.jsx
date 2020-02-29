@@ -2,6 +2,8 @@ import * as React from 'react';
 import ClassNames from 'classnames';
 // import injectSheet from 'react-jss'
 import { createUseStyles, useTheme } from 'react-jss'
+import { useDispatch, useSelector } from "react-redux";
+import { postItems } from '../../store/kanban/actions'
 //import { addItem } from '../../store/kanban/actions'
 let useStyles = createUseStyles(theme => ({
   root: {
@@ -26,13 +28,16 @@ let useStyles = createUseStyles(theme => ({
   },
 }))
 
-let Sidebar = ({ addItem, ...props }) => {
+let Sidebar = ({ ...props }) => {
   console.log('i am props from sidebar.jsx', props)
+  const dispatch = useDispatch();
   //console.log('i am hook-store from sidebar.jsx',store)
-  console.log('i am addItem action from sidebar.jsx', addItem)
+  console.log('i am addItem action from sidebar.jsx', postItems)
+  let count = useSelector(state => state.items.count)
+  console.log('i am count from useSelector im sidebar.jsx',count);
   const theme = useTheme()
   const classes = useStyles({ ...props, theme })
-  const handleAddButton = () => addItem();
+  const handleAddButton = () => dispatch(postItems(Number(count) + 1));
   return <div className={ClassNames(classes.root)}>
     <button className={ClassNames(classes.item)}>Четные</button>
     <button className={ClassNames(classes.item)}> Не четные</button>

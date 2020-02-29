@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import Kanban from './screens/kanban/kanban.jsx'
 import Navbar from './components/navbar/navbar.jsx'
 import SberLayout from './screens/sberLayout/sberLayout.jsx'
-import Sidebar from './components/sidebar/sidebar.js'
+import Sidebar from './components/sidebar/sidebar.jsx'
 import ClassNames from 'classnames';
 import rootReducer from './store/kanban/reducers'
 import createSagaMiddleware from 'redux-saga';

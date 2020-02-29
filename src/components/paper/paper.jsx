@@ -38,6 +38,8 @@ const styles = {
 }
 let Paper = ({ classes, component }) => {
   const count = useSelector(state => state.items.count)
+  console.log('i am count from useSelector im paper.jsx',count);
+  
   return (<div className={ClassNames(classes.root)}>
     {[...Array(count)].map((_, index) => <div key={index} className={ClassNames(classes.item)}>
       {index}

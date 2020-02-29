@@ -4,15 +4,14 @@ import { handleActions } from 'redux-actions';
 import * as actions from './actions';
 
 const items = handleActions({
-  [actions.addItem]: (state, { payload }) => {
-    console.log('i am ADD_ITEM from switch in reducer', state)
-    let newState = { ...state }
-    newState.count++;
-    return newState;
+  [actions.postItemsSuccess]: (state, { payload }) => {
+    console.log('i am POST_ITEM_SUCCESS from switch in reducer', state)
+    console.log('i am payload from POST_ITEMS_SUCCESS from switch in reducer', payload);
+    return { count: payload };
   },
-
+  //post and get items error
   [actions.getItemsSuccess]: (state, { payload }) => {
-    console.log('i am GET_ITEMS_SUCCESS from switch in reducer', state);
+    console.log('i am payload from GET_ITEMS_SUCCESS from switch in reducer', payload);
     return { count: payload };
   }
 

@@ -20,9 +20,9 @@ let Kanban = ({
   console.log('i am params from hook useRouterMath from kanban.jsx', params);
   //const [Items, setItems] = useState();
   useEffect((state) => {
-    console.log('i am state from useEffect-', state);
-    console.log('i am dispatch in useEffect in kanban.jsx', dispatch);
-    console.log('i am getItems in useEffect in kanban.jsx', getItems);
+    //console.log('i am state from useEffect-', state);
+    //console.log('i am dispatch in useEffect in kanban.jsx', dispatch);
+    //console.log('i am getItems in useEffect in kanban.jsx', getItems);
     dispatch(getItems(Number(params.id)))
   }, [params.id]);
 
