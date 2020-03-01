@@ -31,7 +31,7 @@ export function* ItemsSaga() {
            console.error(`Ошибка обработки запроса на получение ITEMS - ${e}`);
        }
    });
-   yield takeLatest(actions.postItems().type, function* ({ payload }) {
+   yield takeEvery(actions.postItems().type, function* ({ payload }) {
       try {
           yield put(actions.postItemsRequest());
           //const token = yield select(getAccessToken);

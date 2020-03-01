@@ -1,5 +1,5 @@
-import React from 'react';
-import { createStore, applyMiddleware } from "redux"
+import React, { useState, useEffect } from 'react';
+import { createStore, applyMiddleware, } from "redux"
 import { Provider } from 'react-redux'
 import Kanban from './screens/kanban/kanban.jsx'
 import Navbar from './components/navbar/navbar.jsx'
@@ -11,6 +11,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/kanban/saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createUseStyles, useTheme } from 'react-jss'
+import Loader from './components/ui/loader.jsx'
 import {
   BrowserRouter as Router,
   Switch,
@@ -60,6 +61,7 @@ let App = ({ ...props }) => {
     <Provider store={store}>
       <div className="App">
         <div className={ClassNames(classes.root)}>
+          <Loader />
           <div className={ClassNames(classes.navbar)}>
             <Navbar />
           </div>
@@ -69,7 +71,7 @@ let App = ({ ...props }) => {
           <Router>
             <Switch>
               <Route path="/about/:id">
-                <div className={ClassNames(classes.content)}><Kanban/></div>
+                <div className={ClassNames(classes.content)}><Kanban /></div>
               </Route>
               <Route path="/sberLayout" component={SberLayout}>
               </Route>
