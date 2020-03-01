@@ -3,10 +3,10 @@ import './loading.scss'
 import { useSelector } from 'react-redux';
 
 let Loader = () => {
-  const Status = useSelector(state => state.status.postItems);
+  const Status = useSelector(state => state.status);
   return (
     <>
-      {Status === 'requested' && <div className='loading'></div>}
+      {Object.values(Status).includes('requested') && <div className='loading'></div>}
     </>
   );
 }
