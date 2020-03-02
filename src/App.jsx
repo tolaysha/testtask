@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { createStore, applyMiddleware, } from "redux"
 import { Provider } from 'react-redux'
 import Kanban from './screens/kanban/kanban.jsx'
@@ -12,6 +12,7 @@ import rootSaga from './store/kanban/saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createUseStyles, useTheme } from 'react-jss'
 import Loader from './components/ui/loader.jsx'
+import Theme from './assets/theme/theme.jsx'
 import {
   BrowserRouter as Router,
   Switch,
@@ -59,26 +60,28 @@ let App = ({ ...props }) => {
   const classes = useStyles({ ...props, theme })
   return (
     <Provider store={store}>
-      <div className="App">
-        <div className={ClassNames(classes.root)}>
-          <Loader />
-          <div className={ClassNames(classes.navbar)}>
-            <Navbar />
+      <Theme>
+        <div className="App">
+          <div className={ClassNames(classes.root)}>
+            <Loader />
+            <div className={ClassNames(classes.navbar)}>
+              <Navbar />
+            </div>
+            <div className={ClassNames(classes.sidebar)}>
+              <Sidebar />
+            </div>
+            <Router>
+              <Switch>
+                <Route path="/about/:id">
+                  <div className={ClassNames(classes.content)}><Kanban /></div>
+                </Route>
+                <Route path="/sberLayout" component={SberLayout}>
+                </Route>
+              </Switch>
+            </Router>
           </div>
-          <div className={ClassNames(classes.sidebar)}>
-            <Sidebar />
-          </div>
-          <Router>
-            <Switch>
-              <Route path="/about/:id">
-                <div className={ClassNames(classes.content)}><Kanban /></div>
-              </Route>
-              <Route path="/sberLayout" component={SberLayout}>
-              </Route>
-            </Switch>
-          </Router>
         </div>
-      </div>
+      </Theme>
     </Provider>
   );
 }
