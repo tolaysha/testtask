@@ -33,8 +33,8 @@ const Button = styled.button`
   min-height: 35px;
   border-radius: 5px;
   background-color: blue;
-  :hover: {
-    background-color: 'darkblue',
+  &:hover {
+    background-color: darkblue;
   },
 `;
 
