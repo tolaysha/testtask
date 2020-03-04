@@ -65,7 +65,7 @@ let Paper = () => {
         <FrontDiv key={index}>
           {index}
         </FrontDiv>
-        <Backdiv>иди нахуй</Backdiv>
+        <Backdiv>Люблю тебя, зайка</Backdiv>
       </CardDiv>
     )}
   </Div>)

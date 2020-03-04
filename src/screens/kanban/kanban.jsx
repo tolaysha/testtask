@@ -30,6 +30,9 @@ let Kanban = ({
   console.log('console check other from Kanban.jsx', other);
   return <div className={ClassNames(classes.root)}>
     <Paper />
+    <iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="http://localhost:3000/about/8"
+  frameborder="0"/>
   </div>
 }
 export default injectSheet(styles)(Kanban);
